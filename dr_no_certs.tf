@@ -9,8 +9,6 @@ data "aws_region" "nc_dr_secondary_region" {
 }
 
 
-data "aws_caller_identity" "current" {}
-
 data "aws_availability_zones" "nc_dr_primary" {
   state = "available"
 }
