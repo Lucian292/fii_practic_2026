@@ -832,7 +832,7 @@ resource "aws_launch_template" "nc_dr_lt_primary" {
     table_name       = var.dynamodb_table_name,
     aws_region       = data.aws_region.nc_dr_primary.name,
     image_key        = var.background_image_key,
-    bedrock_model_id = "amazon.nova-lite-v1:0"
+    bedrock_model_id = var.bedrock_model_id
 })}
     PY_EOF
     cat <<SVC_EOF > /etc/systemd/system/cloudpulse.service
@@ -908,7 +908,7 @@ resource "aws_launch_template" "nc_dr_lt_secondary" {
     table_name       = var.dynamodb_table_name,
     aws_region       = data.aws_region.nc_dr_secondary_region.name,
     image_key        = var.background_image_key,
-    bedrock_model_id = "amazon.nova-lite-v1:0"
+    bedrock_model_id = var.bedrock_model_id
 })}
     PY_EOF
     cat <<SVC_EOF > /etc/systemd/system/cloudpulse.service
